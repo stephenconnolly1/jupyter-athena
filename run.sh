@@ -13,12 +13,7 @@ docker run --rm -it \
 -e AWS_ROLE_ARN=${AWS_ROLE_ARN} \
 -e AWS_MFA_SERIAL_NUMBER=${AWS_MFA_SERIAL_NUMBER} \
 -e AWS_S3_KMS_KEY=${AWS_S3_KMS_KEY} \
+-e AWS_ATHENA_S3_OUTPUT=${AWS_ATHENA_S3_OUTPUT} \
 -p 8888:8888 \
--v /src/Users/sconnoll/Documents/src/jupyter:/home/jovyan/work \
+-v `pwd`:/home/jovyan/work \
 jupyter/minimal-athena jupyter notebook --NotebookApp.token=''
-
-##
-# S3 results = s3://pedanticism-athena-output/output/
-# S3 input = s3://pedanticism-athena-output
-
-# role = arn:aws:iam::441546210005:role/Pedanticism-AthenaFullAccess
